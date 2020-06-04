@@ -1,3 +1,8 @@
+<?php
+$getUser = $this->session->userdata('session_user');
+$getGrup = $this->session->userdata('session_grup');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -69,7 +74,7 @@
 	        <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a href="index.php" class="nav-link">Beranda</a></li>
                 
-                <li class="nav-item"><a href="logout.php" class="nav-link">Logout</a></li>
+                <li class="nav-item"><a href="<?php echo base_url('login_controller/logout'); ?>" class="nav-link">Logout</a></li>
 	        </ul>
 	      </div>
 	    </div>

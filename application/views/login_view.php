@@ -29,13 +29,6 @@
 <!--===============================================================================================-->
 </head>
 <body>
-	<?php
-	if(isset($_GET['pesan'])){
-		if($_GET['pesan']=="gagal"){
-			echo "<div class='alert'>Username dan Password tidak sesuai !</div>";
-		}
-	}
-	?>
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
@@ -44,16 +37,16 @@
 						Selamat Datang
 					</span>
 					<span class="login100-form-avatar">
-						<img src="images/SINISA.png" alt="">
+						<img src="assets/alogin/images/SINISA.png" alt="">
 					</span>
-					<form action="cek_login.php" method="post">
+					<form action="<?php echo base_url('login_controller/cek_log');?>" method="post">
 					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
-						<input class="input100" type="text" name="username"  placeholder="Username .." required="required">
+						<input class="input100" type="text" name="txt_user"  placeholder="Username .." required="required">
 						<span class="focus-input100" data-placeholder="Username"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
-						<input class="input100" type="password" name="password"  placeholder="Kata Sandi .." required="required">
+						<input class="input100" type="password" name="txt_pass"  placeholder="Password .." required="required">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
 
@@ -105,7 +98,7 @@
 	<script src="<?php echo base_url('assets/alogin/vendor/daterangepicker/moment.min.js')?>"></script>
 	<script src="<?php echo base_url('assets/alogin/vendor/daterangepicker/daterangepicker.js')?>"></script>
 <!--===============================================================================================-->
-	<script src="<?php echo base_url('assets/alogin/vendor/countdowntime/countdowntime.js'?>"></script>
+	<script src="<?php echo base_url('assets/alogin/vendor/countdowntime/countdowntime.js')?>"></script>
 <!--===============================================================================================-->
 	<script src="<?php echo base_url('assets/alogin/js/main.js')?>"></script>
 
