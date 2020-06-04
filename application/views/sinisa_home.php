@@ -121,9 +121,9 @@ $getGrup = $this->session->userdata('session_grup');
                             <div class="col-md-6 col-sm-6 col-xs-12 width-50">
                                 <div class="service-details text-center">
                                     <div class="service-image">
-                                        <img alt="image" class="img-responsive" src="<?php echo base_url();?>assets/aberanda/images/icons/presentasi.png" a href="penyuluhan/pengguna/indexpenyuluhan.php.php">
+                                        <img alt="image" class="img-responsive" src="<?php echo base_url();?>assets/aberanda/images/icons/presentasi.png" a href="penyuluhan/pengguna/indexpenyuluhan.php">
                                     </div>
-                                    <h4><a href="<?php echo base_url();?>application/views/penyuluhan_view.php">PENYULUHAN</a></h4>
+                                    <h4><a href="<?php echo base_url('sinisa/penyuluhan');?>">PENYULUHAN</a></h4>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12 mt-25">
@@ -131,7 +131,7 @@ $getGrup = $this->session->userdata('session_grup');
                                     <div class="service-image">
                                         <img alt="image" class="img-responsive" src="<?php echo base_url();?>assets/aberanda/images/icons/tractornew.png" a href="sewaalat/sewa.php">
                                     </div>
-                                    <h4><a href="<?php echo base_url();?>application/views/sewa_view.php">SEWA ALAT</a></h4>
+                                    <h4><a href="<?php echo base_url('sinisa/sewa');?>">SEWA ALAT</a></h4>
                                 </div>
                             </div>
                             

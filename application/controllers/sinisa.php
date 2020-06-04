@@ -9,7 +9,7 @@ class sinisa extends CI_Controller {
 	}
 
     public function index(){
-		//array data yang berindeks user dan memanggil mahasiswa_mmodel
+		//array data yang berindeks user dan memanggil sinisa_model
 		//dan menjalankan fungsi getAll()
 		$data['user'] = $this->sinisa_model->getAll()->result();
 		//menampilkan views menggunakan template yang letak view nya ada didalam folder crud
@@ -17,5 +17,13 @@ class sinisa extends CI_Controller {
 		$this->template->views('sinisa_home', $data);
 
 	
-}
+	}
+
+	public function penyuluhan(){
+		$this->load->view('penyuluhan_view');
+	}
+
+	public function sewa(){
+		$this->load->view('sewa_view');
+	}
 }
