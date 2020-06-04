@@ -1,8 +1,3 @@
-<!-- <?php 
-  require_once '../koneksi.php';
-  $result = mysqli_query($host,"SELECT * FROM barang");
-?>-->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -55,7 +50,7 @@
 	  </nav>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('images/sawah.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('<?php echo base_url();?>assets/asewa/images/sawah.jpg');" data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">

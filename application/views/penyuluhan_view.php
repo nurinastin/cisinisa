@@ -41,8 +41,8 @@
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a href="../../sewaalat/sewa.php" class="nav-link">Sewa Alat</a></li>
-            <li class="nav-item"><a href="<?php echo base_url();?>application/views/penyuluhan_view.php" class="nav-link">Penyuluhan</a></li>
-            <li class="nav-item"><a href="<?php echo base_url();?>application/views/sinisa_home.php" class="nav-link">Beranda</a></li>
+            <li class="nav-item"><a href="<?php echo base_url();?>sinisa/penyuluhan" class="nav-link">Penyuluhan</a></li>
+            <li class="nav-item"><a href="<?php echo base_url();?>sinisa/index" class="nav-link">Beranda</a></li>
             <li class="nav-item"><a href="../../logout.php" class="nav-link">Logout</a></li>
           </ul>
         </div>
@@ -88,7 +88,7 @@
                                 <div class="service-image">
                                     <img alt="image" class="img-responsive" src="<?php echo base_url();?>assets/aberanda/images/icons/list.png" a href="<?php echo base_url();?>application/views/penyuluhan_view.php">
                                 </div>
-                                <h4><a href="?php echo base_url();?>application/views/penyuluhan_view.php">JADWAL PENYULUHAN</a></h4>
+                                <h4><a href="<?php echo base_url();?>application/views/penyuluhan_view.php">JADWAL PENYULUHAN</a></h4>
                             </div>
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-12 mt-25">
@@ -133,20 +133,38 @@
                         $nomor = 1; 
                         //variabel nomor dengan patokan 1 untuk di looping di tabelnya
                         //while itu perulangan tanpa batas
-                        while($data = mysqli_fetch_assoc($query_mysql)){
+                        foreach ($user as $baris){
                         //mengubah baris data yang dipilih menjadi pecahan array
                         ?>
 
                         <tr>
                             <!--variabel untuk menampung suatu data-->
                             <td><?php echo $nomor++; ?></td> <!--perulangan pada variabel nomor-->
-                            <td><?php echo $data['nama']; ?></td> <!--variabel nama-->
-                            <td><?php echo $data['status']; ?></td> <!--variabel status-->
-                            <td><?php echo $data['nama_instansi']; ?></td> <!--variabel instansi-->
-                            <td><?php echo $data['tanggal_input']; ?></td> <!--variabel tanggal input-->
-                            <td><?php echo $data['tanggal_output']; ?></td> <!--variabel tanggal pelaksanaan-->
-                            <td><?php echo $data['materi']; ?></td>
+                            <td><?php echo $baris->nama; ?></td> <!--variabel nama-->
+                            <td><?php echo $baris->status; ?></td> <!--variabel status-->
+                            <td><?php echo $baris->nama_instansi; ?></td> <!--variabel instansi-->
+                            <td><?php echo $baris->tanggal_input; ?></td> <!--variabel tanggal input-->
+                            <td><?php echo $baris->tanggal_output; ?></td> <!--variabel tanggal pelaksanaan-->
+                            <td><?php echo $baris->materi; ?></td>
+                            <td>
+                            <?php
+                            if($getGrup==1){
+                              echo '<a href="'.base_url('sinisa/edit/'.$baris->id).'" class="fa fa-edit"></a>';
+                              echo " ";
+                              echo '<a href="'.base_url('sinisa/hapus/'.$baris->id).'" class="fa fa-times"></a>';
+                            } ?>
+                            </td>
                         </tr>
+
+                        <a href="<?php echo base_url('sinisa/edit/' .$baris->id); ?>" class="btn btn-success btn-icon-split">
+					              <!--<i class="fas fa-edit" style="padding: 5px;"></i>-->
+					              </a>
+
+					              <!--fa fa-edit">&nbsp; -->
+					              <a href="<?php echo base_url('sinisa/hapus/' .$baris->id); ?>">
+					              <!--<i class="fas fa-trash" style="padding: 5px;"></i>-->
+					              </a>
+					              <!--class="fa fa-times">-->
 
                         <?php } ?>
                     </table>
