@@ -6,21 +6,19 @@ class sinisa_model extends CI_Model{
     }
 
 	function getAll(){
-		//query untuk memilih tm_user yang akan dipakai pada database terkait
 		$this->db->select('*');
-		$this->db->from('user');
-		$this->db->join('ts_grup', 'user.grup = ts_grup.id_grup');
-		//fungsi eksekusi query yang sama seperti mysqli_query
+		$this->db->from('penyuluhan');
 		$query = $this->db->get();
-		//mengembalikan nilai $query
-		return $query;
+            return $query;
+
+		
 	}
 
+	
 	function getgrup(){
 		$this->db->select('*');
 		$this->db->from('ts_grup');
 		$query = $this->db->get();
-			//  $query= $this->db->get();
 			 return $query;
 	}
 
@@ -34,6 +32,22 @@ class sinisa_model extends CI_Model{
 		$query = $this->db->get();
 		//mengembalikan nilai $query
 		return $query;
+	}
+
+	//CRUD UPDATE DELETE
+	function edit_data($where, $table){
+		return $this->db->get_where($table, $where);
+	}
+
+	function update_data($where,$data,$table){
+		$this->db->where($where);
+		$this->db->update($table,$data);
+	}
+
+	function hapus_data($where,$table){
+		$this->db->where($where);
+		$query = $this->db->delete($table);
+			return ($this->db->affected_rows($query) > 0) ? TRUE : FALSE;
 	}
 }
 ?>

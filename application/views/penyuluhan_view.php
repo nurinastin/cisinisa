@@ -1,3 +1,8 @@
+<?php
+$getUser = $this->session->userdata('session_user');
+$getGrup = $this->session->userdata('session_grup');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -127,6 +132,7 @@
                             <th>Tanggal Pengajuan</th>  
                             <th>Tanggal Pelaksanaan</th>
                             <th>Judul Materi Penyuluhan</th>
+                            <th></th>
                         </tr>
 
                         <?php 
@@ -149,9 +155,9 @@
                             <td>
                             <?php
                             if($getGrup==1){
-                              echo '<a href="'.base_url('sinisa/edit/'.$baris->id).'" class="fa fa-edit"></a>';
-                              echo " ";
-                              echo '<a href="'.base_url('sinisa/hapus/'.$baris->id).'" class="fa fa-times"></a>';
+                              echo '<a href="'.base_url('sinisa/edit/'.$baris->id).'" class="fa fa-edit">Edit</a>';
+                              echo " | ";
+                              echo '<a href="'.base_url('sinisa/hapus/'.$baris->id).'" class="fa fa-times">Hapus</a>';
                             } ?>
                             </td>
                         </tr>
