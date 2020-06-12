@@ -1,0 +1,20 @@
+//bagian $data['head'] untuk memanggil file head.php dari folder bar/
+		// ['head'] data yang kita panggil dari file view.php dari folder bar/  
+		$data['head'] = $this->_ci->load->view('tampilan/head', $data, TRUE);
+
+		// Bagian $data['topbar'] untuk memanggil file topbar.php dari folder bar/
+		// ['topbar'] data yang kita panggil dari file view.php dari folder bar/
+		$data['topbar'] = $this->_ci->load->view('tampilan/topbar', $data, TRUE); 
+
+		// ['isi'] data yang kita panggil dari file content.php dari folder bar/ 
+		$data['isi'] = $this->_ci->load->view($template, $data, TRUE); 
+
+		// Bagian $data['content'] untuk memanggil file content.php dari folder bar/
+		// ['content'] data yang kita panggil dari file view.php dari folder bar/
+		$data['content'] = $this->_ci->load->view('tampilan/content', $data, TRUE); 
+
+		// Bagian $data['footer'] untuk memanggil file footer.php dari folder bar/
+		// ['footer'] data yang kita panggil dari file view.php dari folder bar/
+		$data['footer'] = $this->_ci->load->view('tampilan/footer', $data, TRUE); 
+
+		echo $data['js']= $this->_ci->load->view('tampilan/js', $data, TRUE); 

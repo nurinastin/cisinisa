@@ -72,7 +72,7 @@
 								Tidak punya akun? Klik
 							</span>
 
-							<a href="../Register/indexdaftar.php" class="txt2">
+							<a href="<?php echo base_url('login_controller/daftar'); ?>" class="txt2">
 								Daftar 
 							</a>
 						</li>

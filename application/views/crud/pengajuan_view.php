@@ -1,14 +1,7 @@
-<?php
-$getUser = $this->session->userdata('session_user');
-$getGrup = $this->session->userdata('session_grup');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>PENYULUHAN</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pengajuan Jadwal Penyuluhan</title>
     
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
 
@@ -28,17 +21,14 @@ $getGrup = $this->session->userdata('session_grup');
 
     
     <link rel="stylesheet" href="<?php echo base_url();?>assets/asewa/css/flaticon.css">
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/asewa/css/icomoon.css">
+    <link rel="stylesheet" href="<?php echo base_url();?>assets/asewa/sewaalat/css/icomoon.css">
     <link rel="stylesheet" href="<?php echo base_url();?>assets/asewa/css/style.css">
-
-    
   </head>
-
   <body>
-    
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">                         
-        <a class="navbar-brand" href="">JADWAL <span>PENYULUHAN</span></a>
+        <a class="navbar-brand" href="">Pengajuan <span>Jadwal Penyuluhan</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
@@ -53,37 +43,21 @@ $getGrup = $this->session->userdata('session_grup');
         </div>
       </div>
     </nav>
-    <!-- END nav -->
+  <!-- END nav -->
     
     <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('<?php echo base_url();?>assets/aberanda/images/sawahblur.jpg');" data-stellar-background-ratio="0.5">
-    
       <div class="overlay"></div>
-        <div class="container">
-          <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-            <div class="col-md-9 ftco-animate pb-5">
-              <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url();?><?php echo base_url();?>sinisa/index">Beranda <i class="ion-ios-arrow-forward"></i></a></span></p>
-              <h1 class="mb-3 bread">PENYULUHAN</h1>
-            </div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+          <div class="col-md-9 ftco-animate pb-5">
+          	<p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url();?>sinisa/index">Beranda <i class="ion-ios-arrow-forward"></i></a></span> <span><a href="<?php echo base_url();?>sinisa/index">Tentang <i class="ion-ios-arrow-forward"></i></a></span></p>
+            <h1 class="mb-3 bread">PENYULUHAN</h1>
           </div>
         </div>
+      </div>
     </section>
 
-    <section class="ftco-section">
-      <div class="container">
-      <div class="row d-flex mb-5 contact-info justify-content-center">
-          <div class="col-md-8">
-            <div class="row mb-5">
-              <tr>
-              <p><h4>Pengajuan jadwal yang diajukan pada hari ini, bisa melakukan penyuluhan mulai tanggal :
-              </h4></p>
-              <?php echo date('d F Y',strtotime("+7 day")); ?>
-              </tr>
-              <tr></tr>
-            </div>
-          </div>
-      </div>
-
-      <section class="service-block">
+    <section class="service-block">
       <link href="<?php echo base_url();?>assets/aberanda/css/style.css" rel="stylesheet">
                 <div class="container">
                     <div class="row">
@@ -91,7 +65,7 @@ $getGrup = $this->session->userdata('session_grup');
                         <div class="col-md-6 col-sm-6 col-xs-12 width-50">
                             <div class="service-details text-center">
                                 <div class="service-image">
-                                    <img alt="image" class="img-responsive" src="<?php echo base_url();?>assets/aberanda/images/icons/list.png" a href="<?php echo base_url();?>application/views/penyuluhan_view.php">
+                                    <img alt="image" class="img-responsive" src="<?php echo base_url();?>assets/aberanda/images/icons/list.png" a href="<?php echo base_url();?>sinisa/index">
                                 </div>
                                 <h4><a href="<?php echo base_url();?>sinisa/penyuluhan">JADWAL PENYULUHAN</a></h4>
                             </div>
@@ -99,7 +73,7 @@ $getGrup = $this->session->userdata('session_grup');
                         <div class="col-md-6 col-sm-6 col-xs-12 mt-25">
                             <div class="service-details text-center">
                                 <div class="service-image">
-                                    <img alt="image" class="img-responsive" src="<?php echo base_url();?>assets/aberanda/images/icons/planner.png" a href="pengajuan.php">
+                                    <img alt="image" class="img-responsive" src="<?php echo base_url();?>assets/aberanda/images/icons/planner.png" a href="<?php echo base_url();?>sinisa/pengajuan">
                                 </div>
                                 <h4><a href="<?php echo base_url();?>sinisa/tambah">PENGAJUAN JADWAL</a></h4>
                             </div>
@@ -109,85 +83,58 @@ $getGrup = $this->session->userdata('session_grup');
                 </div>
             </section><br>
 
-        <div class="table-responsive">
-            <table id="recent-purchases-listing" class="table">
-            <link rel="stylesheet" href="<?php echo base_url();?>assets/aberanda/css/csscoba.css">
-                <thead>
-                <!--membuat tabel dengan field yang akan ditampilkan-->
-                <center><h4>Data Jadwal Penyuluhan</h4></center>
-                <!--membuat tabel dengan border 1-->
+            <section class="ftco-section contact-section">
+                  <div class="container">
+                    <div class="row d-flex mb-5 contact-info justify-content-center">
+                      <div class="col-md-8">
+                        <div class="row mb-5">
+                                <p><h5>Pengajuan jadwal yang diajukan pada hari ini, bisa melakukan penyuluhan mulai tanggal :
+                                </h5></p>
+                                <?php echo date('d F Y',strtotime("+7 day")); ?>
+                                <p><h5>Jadwal penyuluhan yang telah dibuat tidak bisa dibatalkan. Pastikan anda membuat jadwal yang tepat.</h5></p>
+                        </div>
+                      </div>
+                    </div>
 
-                <form action="indexpenyuluhan.php" method="post">
-                    <input type="text" name="valueToSearch" placeholder="Cari nama"><br><br>
-                    <input type="submit" name="search" value="Cari"><br><br>
-                </form>
+      
+        
+        <div class="row block-9 justify-content-center mb-5">
+          <div class="col-md-8 mb-md-5">
+          	<h4 class="text-center">Harap isi data pengajuan jadwal <br>dengan benar dan lengkap</h4><br><br>
+            <form action="<?php echo base_url().'sinisa/input';?>" method="post">
+              <div class="form-group">
+                <label for="nama">Nama</label>
+                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama" required>
+              </div>
+              <div class="form-group">
+                <label for="nama">Nama Instansi</label>
+                        <input type="text" class="form-control" name="nama_instansi" id="asal" placeholder="Nama Instansi" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="nama">Judul Materi</label>
+                  <input type="text" class="form-control" name="materi" id="materi" placeholder="Tuliskan Judul Materi Penyuluhan Dengan Lengkap" required>
+              </div>
+              <div class="form-group">
+                <label for="tempat">Tanggal Pengajuan</label>
+                  <div class="input-group">
+                    <input type="date" class="form-control" placeholder="Tanggal Input" name="tanggal_input" id="tanggal_input" value="<?= date('Y-m-d')?>" required>
+                  </div>
+              </div>
+              <div class="form-group">
+                <label for="tempat">Tanggal Pelaksanaan</label>
+                  <div class="input-group">
+                    <input type="date" class="form-control" placeholder="Tanggal Pelaksanaan" name="tanggal_output" id="tanggal_output" min="<?= date('Y-m-d',strtotime("+7 day"));?>" value="<?date('Y-m-d')?>" required>
+                      <div class="invalid-feedback">    
+                      </div>
+              </div>
 
-                    <table border="1" class="table">
-                        <tr>
-                        <!--kolom pada tabel-->
-                            <th>No</th>
-                            <th>Nama</th>
-                            <th>Status</th>
-                            <th>Instansi</th>
-                            <th>Tanggal Pengajuan</th>  
-                            <th>Tanggal Pelaksanaan</th>
-                            <th>Judul Materi Penyuluhan</th>
-                            <th>Tindakan</th>
-                        </tr>
-
-                        <?php 
-                        $nomor = 1; 
-                        //variabel nomor dengan patokan 1 untuk di looping di tabelnya
-                        //while itu perulangan tanpa batas
-                        foreach ($user as $baris){
-                        //mengubah baris data yang dipilih menjadi pecahan array
-                        ?>
-
-                        <tr>
-                            <!--variabel untuk menampung suatu data-->
-                            <td><?php echo $nomor++; ?></td> <!--perulangan pada variabel nomor-->
-                            <td><?php echo $baris->nama; ?></td> <!--variabel nama-->
-                            <td><?php echo $baris->status; ?></td> <!--variabel status-->
-                            <td><?php echo $baris->nama_instansi; ?></td> <!--variabel instansi-->
-                            <td><?php echo $baris->tanggal_input; ?></td> <!--variabel tanggal input-->
-                            <td><?php echo $baris->tanggal_output; ?></td> <!--variabel tanggal pelaksanaan-->
-                            <td><?php echo $baris->materi; ?></td>
-                            <td>
-                            <?php
-                            if($getGrup==1){
-                              echo '<a href="'.base_url('sinisa/edit/'.$baris->id).'" class="fa fa-edit">Edit</a>';
-                              echo " | ";
-                              echo '<a href="'.base_url('sinisa/hapus/'.$baris->id).'" class="fa fa-times">Hapus</a>';
-                              echo " | ";
-                              echo '<a href="'.base_url('sinisa/konfirmasi_status/'.$baris->id).'" class="fa fa-times">Konfirmasi</a>';
-                            } ?>
-                            </td>
-                        </tr>
-
-                        <a href="<?php echo base_url('sinisa/edit/' .$baris->id); ?>" class="btn btn-success btn-icon-split">
-					              <!--<i class="fas fa-edit" style="padding: 5px;"></i>-->
-					              </a>
-
-					              <!--fa fa-edit">&nbsp; -->
-					              <a href="<?php echo base_url('sinisa/hapus/' .$baris->id); ?>">
-					              <!--<i class="fas fa-trash" style="padding: 5px;"></i>-->
-					              </a>
-
-                        <a href="<?php echo base_url('sinisa/konfirmasi_status/' .$baris->id); ?>">
-					              <!--class="fa fa-times">-->
-
-                        <?php } ?>
-                    </table>
-                        <h5>Jumlah Penyuluhan : <?php echo $nomor-1; ?> </h5>
-                        <!--menampilkan jumlah sekelas, di -1 karena index mulai dri 1 bukan 0-->
-
-                </thead>
-            </table>
+              <input type="submit" class="btn btn-primary btn-icon-split" name="submit" value="Tambah" style="padding: 5px;">
+            </form>
+          </div>
         </div>
       </div>
-      </div>
     </section>
-
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
@@ -203,14 +150,14 @@ $getGrup = $this->session->userdata('session_grup');
           
           <div class="col-md">
             <div class="ftco-footer-widget mb-4">
-              <h2 class="ftco-heading-2">Mempunyai Pertanyaan?</h2>
-              <div class="block-23 mb-3">
-                <ul>
-                  <li><span class="icon icon-map-marker"></span><span class="text">JL. Semangka No.33 , Kelurahan Baratan, Patrang, Jember, Jawa Timur.</span></li>
-                  <li><a><span class="icon icon-phone"></span><span class="text"> (0331) 567234</span></a></li>
-                  <li><a><span class="icon icon-globe"></span><span class="text">sinisa.mif-project.com</span></a></li>
-                </ul>
-              </div>
+            	<h2 class="ftco-heading-2">Mempunyai Pertanyaan?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">JL. Semangka No.33 , Kelurahan Baratan, Patrang, Jember, Jawa Timur.</span></li>
+	                <li><a><span class="icon icon-phone"></span><span class="text"> (0331) 567234</span></a></li>
+	                <li><a><span class="icon icon-globe"></span><span class="text">sinisa.mif-project.com</span></a></li>
+	              </ul>
+	            </div>
             </div>
           </div>
         </div>
@@ -248,6 +195,6 @@ $getGrup = $this->session->userdata('session_grup');
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="<?php echo base_url();?>assets/asewa/js/google-map.js"></script>
   <script src="<?php echo base_url();?>assets/asewa/js/main.js"></script>
-  
+    
   </body>
 </html>

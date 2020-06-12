@@ -1,12 +1,8 @@
-<?php
-$getUser = $this->session->userdata('session_user');
-$getGrup = $this->session->userdata('session_grup');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SEWA ALAT</title>
+    <title>Daftar Penyewa Barang</title>
+    <title>PENYULUHAN</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -35,7 +31,7 @@ $getGrup = $this->session->userdata('session_grup');
     
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">                         
-        <a class="navbar-brand" href=""> Daftar Alat <span>Pertanian</span></a>
+        <a class="navbar-brand" href="">Daftar <span>Penyewa</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
@@ -52,75 +48,104 @@ $getGrup = $this->session->userdata('session_grup');
     </nav>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('<?php echo base_url();?>assets/asewa/images/sawah.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('<?php echo base_url();?>assets/aberanda/images/sawahblur.jpg');" data-stellar-background-ratio="0.5">
+    
       <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url();?>application/views/sinisa_home.php">Beranda <i class="ion-ios-arrow-forward"></i></a></span></span></p>
-            <h1 class="mb-3 bread">SEWA ALAT</h1>
+        <div class="container">
+          <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+              <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url();?><?php echo base_url();?>sinisa/index">Beranda <i class="ion-ios-arrow-forward"></i></a></span></p>
+              <h1 class="mb-3 bread">SEWA ALAT</h1>
+            </div>
           </div>
         </div>
-      </div>
     </section>
 
-    <section class="ftco-section">
-    	<div class="container">
+        <section class="ftco-section contact-section">
+      <div class="container">
+        <div class="row d-flex mb-5 contact-info justify-content-center">
+            <div class="col-md-8">
+                <div class="row mb-5">
+                 
+                 
+                </div>
+          </div>
+        </div>
+        
+        <div class="table-responsive">
+                    <!-- <table id="recent-purchases-listing" class="table">
+                      <thead> -->
 
-    		<?php 
-          $numcol = 4;
-          $countrow = 0;
-          $colwidth = 12 / $numcol;
-        ?>
-        <div class="row">
-         <?php 
-         foreach ($user as $baris) { ?>
+                        <!--membuat tabel dengan field yang akan ditampilkan-->
+                        <h3></h3>
+                        <!--membuat tabel dengan border 1-->
+                        <table class="table table-responsive-sm tble striped table-hover text-center">
+                          <thead class="bg-dark text-white">
+                            <tr>
+                            <!--kolom pada tabel-->
+                                <th>No</th>
+                                <th>NIK</th>
+                                <th>Nama</th>
+                                <th>Nomor Telepon</th>
+                                <th>Nama Barang</th>
+                                <th>ID Barang</th>
+                                <th>Tanggal Sewa</th>
+                                <th>Tanggal Kembali</th> 
+                                <th>Lama Sewa</th>
+                                <th>Harga Sewa</th> 
+                                <th>Asal</th>
+                                <th>Alamat</th>
+                                <th>Aksi</th>
+                                
+                            </tr>
+                          </thead>
 
-    			<div class="col-md-<?php $colwidth; ?>">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(<?php echo base_url();?>assets/asewa/images/<?php echo $baris['gambar']; ?>)">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">Rp. <?php echo number_format($baris['harga'],0,',','.') ?></span>
-    							<p class="from-day">
-    								<span>/Hari</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><?php echo $baris['nama_barang']; ?></h2>
-    						<a href="<?php echo base_url();?>sinisa/detailsewa/<?php echo $baris['id_barang']; ?>" class="btn btn-black btn-outline-black ml-1">Details</a>
-    					</div>
-    				</div>
-    			</div>
+                            <?php 
+                        
+                            $nomor = 1; 
+                            foreach ($user as $baris){
+                            ?>
 
-          <?php 
-            $countrow++;
-            if ($countrow % $numcol == 0){
-              echo '</div><div class="row">';
-            }
-            }
-          ?>
-    		</div>
-    		
-        <center>
-        <?php
-          if($getGrup==1){
-            echo '<a href="'.base_url('sinisa/tambah_barang/').'" class="btn btn-black btn-outline-black ml-1">Tambah Barang</a>';
-            echo '<a href="'.base_url('sinisa/daftar_penyewa/').'" class="btn btn-black btn-outline-black ml-1">Daftar Penyewa</a>';
-        } ?>
-        </center>
+                            <tr>
+                                <!--variabel untuk menampung suatu data-->
+                                <td><?php echo $nomor++; ?></td>
+                                <td><?php echo $baris['nik']; ?></td> <!--perulangan pada variabel nik-->
+                                <td><?php echo $baris['nama']; ?></td> <!--variabel nama-->
+                                <td><?php echo $baris['no_telepon']; ?></td> <!--variabel no telp-->
+                                <td><?php echo $baris['nama_barang']; ?></td> <!--variabel nama barang-->
+                                <td><?php echo $baris['id_barang']; ?></td> <!--variabel id barang-->
+                                <td><?php echo $baris['tanggal_sewa']; ?></td> <!--variabel tgl sewa-->
+                                <td><?php echo $baris['tanggal_kembali']; ?></td> <!--variabel tgl kembali-->
+                                <td><?php echo $baris['jumlah_hari']; ?></td>
+                                <td><?php echo $baris['harga_sewa']; ?></td>
+                                <td><?php echo $baris['asal']; ?></td> <!--variabel asal-->
+                                <td><?php echo $baris['alamat']; ?></td> <!--variabel alamat-->
+                                <td>
 
-        <a href="<?php echo base_url('sinisa/tambah_barang/'); ?>" class="btn btn-success btn-icon-split">
-				<!--<i class="fas fa-edit" style="padding: 5px;"></i>-->
-				</a>
+                                <a href="<?= base_url('sinisa/editpenyewa/' .$baris['nik']); ?>">Edit</a>
+                                <a> |</a>
+                                <a href="<?= base_url('sinisa/hapuspenyewa/' .$baris['nik']); ?>">Hapus</a>
 
-				<!--fa fa-edit">&nbsp; -->
-				<a href="<?php echo base_url('sinisa/daftar_penyewa'); ?>">
-				<!--<i class="fas fa-trash" style="padding: 5px;"></i>-->
-				</a>
-    	</div>
-    </section>
+                                </td>
+                            </tr>
+                            <a href="<?= base_url('sinisa/editpenyewa/' .$baris['nik']); ?>">Edit
+                            <!--<i class="fas fa-edit" style="padding: 5px;"></i>-->
+                            </a>
 
+                            <!--fa fa-edit">&nbsp; -->
+                            <a href="<?= base_url('sinisa/hapuspenyewa/' .$baris['nik']); ?>">Hapus
+                            <!--<i class="fas fa-trash" style="padding: 5px;"></i>-->
+                            </a>
+
+                            <?php } ?>
+                        </table>
+                        <h3>Jumlah Penyewa : <?php echo $nomor-1; ?> </h3>
+                        <!--menampilkan jumlah sekelas, di -1 karena index mulai dri 1 bukan 0-->
+                      </thead>
+                    </table>
+                  </div>
+                </div>
+              </section>
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
@@ -162,7 +187,6 @@ $getGrup = $this->session->userdata('session_grup');
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-
   <script src="<?php echo base_url();?>assets/asewa/js/jquery.min.js"></script>
   <script src="<?php echo base_url();?>assets/asewa/js/jquery-migrate-3.0.1.min.js"></script>
   <script src="<?php echo base_url();?>assets/asewa/js/popper.min.js"></script>
@@ -180,6 +204,6 @@ $getGrup = $this->session->userdata('session_grup');
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="<?php echo base_url();?>assets/asewa/js/google-map.js"></script>
   <script src="<?php echo base_url();?>assets/asewa/js/main.js"></script>
-    
-  </body>
+   
+   </body> 
 </html>

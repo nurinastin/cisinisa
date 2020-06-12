@@ -35,5 +35,9 @@ class login_controller extends CI_Controller{
 	function logout() {
 		$this->session->sess_destroy();
 		redirect('login_controller');
-	}
+    }
+    
+    public function daftar(){
+        $this->load->view('daftar');
+    }
 }

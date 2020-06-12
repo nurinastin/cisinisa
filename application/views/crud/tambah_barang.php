@@ -1,12 +1,9 @@
-<?php
-$getUser = $this->session->userdata('session_user');
-$getGrup = $this->session->userdata('session_grup');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SEWA ALAT</title>
+    <title>Tambah Barang</title>
+    <meta charset="utf-8">
+    <title>PENYULUHAN</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -35,7 +32,7 @@ $getGrup = $this->session->userdata('session_grup');
     
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">                         
-        <a class="navbar-brand" href=""> Daftar Alat <span>Pertanian</span></a>
+        <a class="navbar-brand" href="">Tambah <span>Barang</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
@@ -45,82 +42,68 @@ $getGrup = $this->session->userdata('session_grup');
             <li class="nav-item"><a href="<?php echo base_url();?>sinisa/sewa" class="nav-link">Sewa Alat</a></li>
             <li class="nav-item"><a href="<?php echo base_url();?>sinisa/penyuluhan" class="nav-link">Penyuluhan</a></li>
             <li class="nav-item"><a href="<?php echo base_url();?>sinisa/index" class="nav-link">Beranda</a></li>
-            <li class="nav-item"><a href="<?php echo base_url('login_controller/logout'); ?>" class="nav-link">Logout</a></li>
+            <li class="nav-item"><a href="<?php echo base_url();?>sinisa/logout" class="nav-link">Logout</a></li>
           </ul>
         </div>
       </div>
     </nav>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('<?php echo base_url();?>assets/asewa/images/sawah.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('<?php echo base_url();?>assets/aberanda/images/sawahblur.jpg');" data-stellar-background-ratio="0.5">
+    
       <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url();?>application/views/sinisa_home.php">Beranda <i class="ion-ios-arrow-forward"></i></a></span></span></p>
-            <h1 class="mb-3 bread">SEWA ALAT</h1>
+        <div class="container">
+          <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+              <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url();?><?php echo base_url();?>sinisa/index">Beranda <i class="ion-ios-arrow-forward"></i></a></span></p>
+              <h1 class="mb-3 bread">SEWA ALAT</h1>
+            </div>
           </div>
         </div>
+    </section>
+
+    <section class="ftco-section contact-section">
+      <div class="container">
+        <div class="row d-flex mb-5 contact-info justify-content-center">
+          <div class="col-md-8">
+            <div class="row mb-5">
+             
+             
+            </div>
+          </div>
+        </div>
+        
+        <div class="row block-9 justify-content-center mb-5">
+          <div class="col-md-8 mb-md-5">
+            
+            <h2 class="text-center">Data Barang</h2>
+            <form action="<?php echo base_url().'sinisa/inputbarang';?>" method="post">
+              <div class="form-group">
+                <label for="nama">ID Barang</label>
+                        <input type="text" class="form-control" name="id_barang" id="id_barang" placeholder="ID Barang" required>
+              </div>
+              <div class="form-group">
+                <label for="nama">Nama Barang</label>
+                        <input type="text" class="form-control" name="nama_barang" id="nama_barang" placeholder="Nama Barang" required>
+              </div>
+              <div class="form-group">
+                <label for="nama">Harga</label>
+                        <input type="text" class="form-control" name="harga" id="harga" placeholder="Harga" required>
+              <div class="form-group">
+                <label for="nama">Stok</label>
+                        <input type="text" class="form-control" name="stok" id="stok" placeholder="Stok" required>
+              </div>
+             <div class="form-group">
+                <label for="nama">Gambar</label>
+                        <input type="file" class="form-control" name="gambar" id="gambar" placeholder="Gambar" required>
+              </div>
+              <div class="form-group">
+                <input name="input" type="submit" value="simpan" class="btn btn-primary py-3 px-5">
+              </div>
+            </form>
+          
       </div>
     </section>
-
-    <section class="ftco-section">
-    	<div class="container">
-
-    		<?php 
-          $numcol = 4;
-          $countrow = 0;
-          $colwidth = 12 / $numcol;
-        ?>
-        <div class="row">
-         <?php 
-         foreach ($user as $baris) { ?>
-
-    			<div class="col-md-<?php $colwidth; ?>">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(<?php echo base_url();?>assets/asewa/images/<?php echo $baris['gambar']; ?>)">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">Rp. <?php echo number_format($baris['harga'],0,',','.') ?></span>
-    							<p class="from-day">
-    								<span>/Hari</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><?php echo $baris['nama_barang']; ?></h2>
-    						<a href="<?php echo base_url();?>sinisa/detailsewa/<?php echo $baris['id_barang']; ?>" class="btn btn-black btn-outline-black ml-1">Details</a>
-    					</div>
-    				</div>
-    			</div>
-
-          <?php 
-            $countrow++;
-            if ($countrow % $numcol == 0){
-              echo '</div><div class="row">';
-            }
-            }
-          ?>
-    		</div>
-    		
-        <center>
-        <?php
-          if($getGrup==1){
-            echo '<a href="'.base_url('sinisa/tambah_barang/').'" class="btn btn-black btn-outline-black ml-1">Tambah Barang</a>';
-            echo '<a href="'.base_url('sinisa/daftar_penyewa/').'" class="btn btn-black btn-outline-black ml-1">Daftar Penyewa</a>';
-        } ?>
-        </center>
-
-        <a href="<?php echo base_url('sinisa/tambah_barang/'); ?>" class="btn btn-success btn-icon-split">
-				<!--<i class="fas fa-edit" style="padding: 5px;"></i>-->
-				</a>
-
-				<!--fa fa-edit">&nbsp; -->
-				<a href="<?php echo base_url('sinisa/daftar_penyewa'); ?>">
-				<!--<i class="fas fa-trash" style="padding: 5px;"></i>-->
-				</a>
-    	</div>
-    </section>
-
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
@@ -180,6 +163,27 @@ $getGrup = $this->session->userdata('session_grup');
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="<?php echo base_url();?>assets/asewa/js/google-map.js"></script>
   <script src="<?php echo base_url();?>assets/asewa/js/main.js"></script>
-    
+
+  <script>
+     $('#input').on('click',function(e){
+        let data1 = $('#form-input').serialize();
+        $.ajax({
+          url:'inputaksisewa.php',
+          method:'post',
+          data:data1,
+          success:function(data){
+            Swal.fire(
+              'Data Berhasil Disimpan!',
+              'Klik untuk lanjut!',
+              'success'
+            )
+              window.location.href='sewaadmin.php'
+          }
+        });
+        e.preventDefault();
+      });
+
+  </script>
+  
   </body>
 </html>

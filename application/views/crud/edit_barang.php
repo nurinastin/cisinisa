@@ -1,12 +1,7 @@
-<?php
-$getUser = $this->session->userdata('session_user');
-$getGrup = $this->session->userdata('session_grup');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SEWA ALAT</title>
+    <title>Edit Barang</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -35,7 +30,7 @@ $getGrup = $this->session->userdata('session_grup');
     
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">                         
-        <a class="navbar-brand" href=""> Daftar Alat <span>Pertanian</span></a>
+        <a class="navbar-brand" href="">Edit <span>Barang</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
@@ -52,75 +47,77 @@ $getGrup = $this->session->userdata('session_grup');
     </nav>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('<?php echo base_url();?>assets/asewa/images/sawah.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('<?php echo base_url();?>assets/aberanda/images/sawahblur.jpg');" data-stellar-background-ratio="0.5">
+    
       <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url();?>application/views/sinisa_home.php">Beranda <i class="ion-ios-arrow-forward"></i></a></span></span></p>
-            <h1 class="mb-3 bread">SEWA ALAT</h1>
+        <div class="container">
+          <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+              <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url();?><?php echo base_url();?>sinisa/index">Beranda <i class="ion-ios-arrow-forward"></i></a></span></p>
+              <h1 class="mb-3 bread">SEWA ALAT</h1>
+            </div>
           </div>
         </div>
-      </div>
     </section>
 
     <section class="ftco-section">
     	<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+ 
+            </div>
+          </div>
+        </div>
+        
+        <div class="table-responsive">
+ 
+        <!-- partial -->
+        <div class="container">
+          <div class="card card-login mx-auto mt-5">
+            <div class="card-header">Ubah Data Barang</div>
+              <div class="card-body">
 
-    		<?php 
-          $numcol = 4;
-          $countrow = 0;
-          $colwidth = 12 / $numcol;
-        ?>
-        <div class="row">
-         <?php 
-         foreach ($user as $baris) { ?>
+              <?php foreach($user as $data){ ?>
 
-    			<div class="col-md-<?php $colwidth; ?>">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(<?php echo base_url();?>assets/asewa/images/<?php echo $baris['gambar']; ?>)">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">Rp. <?php echo number_format($baris['harga'],0,',','.') ?></span>
-    							<p class="from-day">
-    								<span>/Hari</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><?php echo $baris['nama_barang']; ?></h2>
-    						<a href="<?php echo base_url();?>sinisa/detailsewa/<?php echo $baris['id_barang']; ?>" class="btn btn-black btn-outline-black ml-1">Details</a>
-    					</div>
-    				</div>
-    			</div>
+                <form method="POST" action="<?php echo base_url('sinisa/updatebarang');?>">
+                  <input type="hidden" name="id_barang" value="<?php echo $data->id_barang; ?>">
+                  <div class="form-group">
+                      <label for="nama">ID Barang</label>
+                        <input type="text" class="form-control rounded-pill" name="id_barang" id="id_barang" required value="<?php echo $data->id_barang; ?>">
+              </div>
+              <div class="form-group">
+                <label for="nama">Nama Barang</label>
+                        <input type="text" class="form-control" name="nama_barang" id="nama_barang" placeholder="Nama Barang" required value="<?php echo $data->nama_barang; ?>">
+              </div>
+              <div class="form-group">
+                <label for="nama">Harga</label>
+                        <input type="text" class="form-control" name="harga" id="harga" placeholder="Harga" required value="<?php echo $data->harga; ?>">
+              <div class="form-group">
+                <label for="nama">Stok</label>
+                        <input type="text" class="form-control" name="stok" id="stok" placeholder="Stok" required value="<?php echo $data->stok; ?>">
+              </div>
+             <div class="form-group">
+                <label for="nama">Gambar</label>
+                        <input type="file" class="form-control" name="gambar" id="gambar" placeholder="Gambar" required value="<?php echo $data->gambar; ?>">
+              </div>
+                    <br><hr>
 
-          <?php 
-            $countrow++;
-            if ($countrow % $numcol == 0){
-              echo '</div><div class="row">';
-            }
-            }
-          ?>
-    		</div>
-    		
-        <center>
-        <?php
-          if($getGrup==1){
-            echo '<a href="'.base_url('sinisa/tambah_barang/').'" class="btn btn-black btn-outline-black ml-1">Tambah Barang</a>';
-            echo '<a href="'.base_url('sinisa/daftar_penyewa/').'" class="btn btn-black btn-outline-black ml-1">Daftar Penyewa</a>';
-        } ?>
-        </center>
-
-        <a href="<?php echo base_url('sinisa/tambah_barang/'); ?>" class="btn btn-success btn-icon-split">
-				<!--<i class="fas fa-edit" style="padding: 5px;"></i>-->
-				</a>
-
-				<!--fa fa-edit">&nbsp; -->
-				<a href="<?php echo base_url('sinisa/daftar_penyewa'); ?>">
-				<!--<i class="fas fa-trash" style="padding: 5px;"></i>-->
-				</a>
-    	</div>
+                    <div class="row">
+                      <div class="left col-md-6">
+                        <a href="<?php echo base_url('sinisa/detailsewa')?>" class="btn btn-danger rounded-pill ml-3">Batal</a>
+                      </div>
+                    <div class="right col-md-6">
+                      <button class="btn btn-primary rounded-pill ml-5" type="submit" name="submit">Ubah</button>
+                    </div>
+                  </div>
+                </form>
+                <?php } ?>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
@@ -149,9 +146,10 @@ $getGrup = $this->session->userdata('session_grup');
         </div>
         <div class="row">
           <div class="col-md-12 text-center">
+
             <p><!-- Copyright -->
-              Copyright &copy;<script>document.write(new Date().getFullYear());</script> by <a href="" target="_blank">INKA GROUP</a>
-            </p>
+   Copyright &copy;<script>document.write(new Date().getFullYear());</script> by <a href="" target="_blank">INKA GROUP</a>
+  </p>
           </div>
         </div>
       </div>
@@ -162,6 +160,7 @@ $getGrup = $this->session->userdata('session_grup');
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
+        
 
   <script src="<?php echo base_url();?>assets/asewa/js/jquery.min.js"></script>
   <script src="<?php echo base_url();?>assets/asewa/js/jquery-migrate-3.0.1.min.js"></script>

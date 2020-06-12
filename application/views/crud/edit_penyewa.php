@@ -1,12 +1,8 @@
-<?php
-$getUser = $this->session->userdata('session_user');
-$getGrup = $this->session->userdata('session_grup');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>SEWA ALAT</title>
+    <title>Edit Penyewa</title>
+    <title>PENYULUHAN</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -35,7 +31,7 @@ $getGrup = $this->session->userdata('session_grup');
     
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
       <div class="container">                         
-        <a class="navbar-brand" href=""> Daftar Alat <span>Pertanian</span></a>
+        <a class="navbar-brand" href="">Edit <span>Data Penyewa</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
         </button>
@@ -52,75 +48,107 @@ $getGrup = $this->session->userdata('session_grup');
     </nav>
     <!-- END nav -->
     
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('<?php echo base_url();?>assets/asewa/images/sawah.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('<?php echo base_url();?>assets/aberanda/images/sawahblur.jpg');" data-stellar-background-ratio="0.5">
+    
       <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url();?>application/views/sinisa_home.php">Beranda <i class="ion-ios-arrow-forward"></i></a></span></span></p>
-            <h1 class="mb-3 bread">SEWA ALAT</h1>
+        <div class="container">
+          <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+              <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url();?><?php echo base_url();?>sinisa/index">Beranda <i class="ion-ios-arrow-forward"></i></a></span></p>
+              <h1 class="mb-3 bread">SEWA ALAT</h1>
+            </div>
           </div>
         </div>
-      </div>
     </section>
 
     <section class="ftco-section">
     	<div class="container">
+      <div class="row d-flex mb-5 contact-info justify-content-center">
+            <div class="col-md-8">
+                <div class="row mb-5">
+ 
+ </div>
+          </div>
+        </div>
+        
+        <div class="table-responsive">
+                    <!-- <table id="recent-purchases-listing" class="table">
+                      <thead> -->
+        <!-- partial -->
+        <div class="container">
+          <div class="card card-login mx-auto mt-5">
+            <div class="card-header">Ubah Data Penyewa</div>
+              <div class="card-body">
 
-    		<?php 
-          $numcol = 4;
-          $countrow = 0;
-          $colwidth = 12 / $numcol;
-        ?>
-        <div class="row">
-         <?php 
-         foreach ($user as $baris) { ?>
+                <form method="POST" action="<?php echo base_url('sinisa/updatedatapenyewa');?>">
+                  <input type="hidden" name="nik" value="<?php echo $user['nik']; ?>">
+                  <div class="form-group">
+                      <label for="nik">NIK</label>
+                      <input type="text" class="form-control rounded-pill" id="nik" name="nik" required readonly value="<?php echo $user['nik']; ?>">
+                    </div>
+                    <div class="form-group">
+                      <label for="nama">Nama</label>
+                      <input type="text" class="form-control rounded-pill" id="nama" name="nama" required value="<?php echo $user['nama']; ?>">
+                    </div>
+                    <div class="form-group">
+                      <label for="no_telepon">Nomor Telepon</label>
+                      <input type="text" class="form-control rounded-pill" id="no_telepon" name="no_telepon" required value="<?php echo $user['no_telepon']; ?>">
+                    </div>
+              <div class="form-group">
+                      <label for="nama_barang">Nama Barang</label>
+                      <input type="text" class="form-control rounded-pill" id="nama_barang" name="nama_barang" required readonly value="<?php echo $user['nama_barang']; ?>">
+                    </div>
+              <div class="form-group">
+                      <label for="id_barang">ID Barang</label>
+                      <input type="text" class="form-control rounded-pill" id="id_barang" name="id_barang" required readonly value="<?php echo $user['id_barang']; ?>">
+                    </div>
+              <div class="form-group">
+                <label for="tanggal_sewa">Tanggal Sewa</label>
+                        <div class="input-group">
+                            <input id="tanggal_sewa" type="date" min="<?= date('Y-m-d'); ?>" max="" class="form-control rounded-pill" name="tanggal_sewa" required readonly value="<?php echo $user['tanggal_sewa']; ?>">
+              </div>
+              </div>
+              <div class="form-group">
+                <label for="tgl_kembali">Tanggal Kembali</label>
+                        <div class="input-group">
+                            <input id="tanggal_kembali" type="date" min="" max="" class="form-control rounded-pill" name="tgl_kembali" required readonly value="<?php echo $user['tanggal_kembali']; ?>">
+               </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="lama_sewa">Lama Sewa</label>
+                  <input type="text" class="form-control rounded-pill" name="lama_sewa" id="lama_sewa" placeholder="Lama Sewa" required readonly value="<?php echo $user['jumlah_hari']; ?>">
+                          
+              </div>
+              <div class="form-group">
+                <label for="harga_sewa">Harga Total Sewa</label>
+                        <input type="text" class="form-control rounded-pill" name="harga_sewa" id="harga_sewa" placeholder="Harga Sewa" required readonly value="<?php echo $user['harga_sewa']; ?>">
+              </div>
+              <div class="form-group">
+                      <label for="asal">Asal</label>
+                      <input type="text" class="form-control rounded-pill" id="asal" name="asal" required value="<?php echo $user['asal']; ?>">
+                    </div>
+              <div class="form-group">
+                      <label for="alamat">Alamat</label>
+                      <input type="text" class="form-control rounded-pill" id="alamat" name="alamat" required value="<?php echo $user['alamat']; ?>">
+                    </div>
+                    <br><hr>
 
-    			<div class="col-md-<?php $colwidth; ?>">
-    				<div class="car-wrap ftco-animate">
-    					<div class="img d-flex align-items-end" style="background-image: url(<?php echo base_url();?>assets/asewa/images/<?php echo $baris['gambar']; ?>)">
-    						<div class="price-wrap d-flex">
-    							<span class="rate">Rp. <?php echo number_format($baris['harga'],0,',','.') ?></span>
-    							<p class="from-day">
-    								<span>/Hari</span>
-    							</p>
-    						</div>
-    					</div>
-    					<div class="text p-4 text-center">
-    						<h2 class="mb-0"><?php echo $baris['nama_barang']; ?></h2>
-    						<a href="<?php echo base_url();?>sinisa/detailsewa/<?php echo $baris['id_barang']; ?>" class="btn btn-black btn-outline-black ml-1">Details</a>
-    					</div>
-    				</div>
-    			</div>
-
-          <?php 
-            $countrow++;
-            if ($countrow % $numcol == 0){
-              echo '</div><div class="row">';
-            }
-            }
-          ?>
-    		</div>
-    		
-        <center>
-        <?php
-          if($getGrup==1){
-            echo '<a href="'.base_url('sinisa/tambah_barang/').'" class="btn btn-black btn-outline-black ml-1">Tambah Barang</a>';
-            echo '<a href="'.base_url('sinisa/daftar_penyewa/').'" class="btn btn-black btn-outline-black ml-1">Daftar Penyewa</a>';
-        } ?>
-        </center>
-
-        <a href="<?php echo base_url('sinisa/tambah_barang/'); ?>" class="btn btn-success btn-icon-split">
-				<!--<i class="fas fa-edit" style="padding: 5px;"></i>-->
-				</a>
-
-				<!--fa fa-edit">&nbsp; -->
-				<a href="<?php echo base_url('sinisa/daftar_penyewa'); ?>">
-				<!--<i class="fas fa-trash" style="padding: 5px;"></i>-->
-				</a>
-    	</div>
+                    <div class="row">
+                      <div class="left col-md-6">
+                        <a href="<?php echo base_url('sinisa/daftar_penyewa'); ?>" class="btn btn-danger rounded-pill ml-3">Batal</a>
+                      </div>
+                    <div class="right col-md-6">
+                      <button class="btn btn-primary rounded-pill ml-5" type="submit" name="submit">Ubah</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-
 
     <footer class="ftco-footer ftco-bg-dark ftco-section">
       <div class="container">
@@ -180,6 +208,6 @@ $getGrup = $this->session->userdata('session_grup');
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="<?php echo base_url();?>assets/asewa/js/google-map.js"></script>
   <script src="<?php echo base_url();?>assets/asewa/js/main.js"></script>
-    
-  </body>
+
+   </body> 
 </html>
