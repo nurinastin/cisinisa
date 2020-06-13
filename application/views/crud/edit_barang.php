@@ -104,10 +104,10 @@
 
                     <div class="row">
                       <div class="left col-md-6">
-                        <a href="<?php echo base_url('sinisa/detailsewa')?>" class="btn btn-danger rounded-pill ml-3">Batal</a>
+                       <!-- <a href="<?php echo base_url('sinisa/detailsewa')?>" class="btn btn-danger rounded-pill ml-3">Batal</a> -->
                       </div>
                     <div class="right col-md-6">
-                      <button class="btn btn-primary rounded-pill ml-5" type="submit" name="submit">Ubah</button>
+                      <button class="btn btn-primary rounded-pill ml-0" type="submit" name="submit">Ubah</button>
                     </div>
                   </div>
                 </form>

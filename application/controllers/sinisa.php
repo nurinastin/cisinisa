@@ -15,7 +15,7 @@ class sinisa extends CI_Controller {
 
 	//KEMBALI
 	public function back(){
-		redirect('sinsia');
+		redirect('sinisa');
 	}
 
 	//READ PENYULUHAN
