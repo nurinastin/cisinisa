@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Jun 2020 pada 01.12
--- Versi server: 10.4.8-MariaDB
--- Versi PHP: 7.3.11
+-- Generation Time: Jun 13, 2020 at 11:43 AM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `barang`
+-- Table structure for table `barang`
 --
 
 CREATE TABLE `barang` (
@@ -37,7 +37,7 @@ CREATE TABLE `barang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `barang`
+-- Dumping data for table `barang`
 --
 
 INSERT INTO `barang` (`id_barang`, `nama_barang`, `harga`, `stok`, `gambar`) VALUES
@@ -45,15 +45,12 @@ INSERT INTO `barang` (`id_barang`, `nama_barang`, `harga`, `stok`, `gambar`) VAL
 ('SA002', 'Penggiling Padi', 100000, 5, 'penggilingpadi.jpg'),
 ('SA003', 'Penggembur Tanah', 100000, 5, 'penggemburtanah.jpg'),
 ('SA004', 'Penyedot Air', 50000, 5, 'penyedotair.jpg'),
-('SA005', 'Penyemprot Hama', 25000, 5, 'penyemprot.jpg'),
-('SA006', 'Cangkul', 25000, 10, 'category4.png'),
-('SA007', 'semprot', 10000, 2, 'sawah.jpg'),
-('SA09', 'BHDH', 20000, 20, 'penggilingpadi.jpg');
+('SA005', 'Penyemprot Hama', 25000, 5, 'penyemprot.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penyuluhan`
+-- Table structure for table `penyuluhan`
 --
 
 CREATE TABLE `penyuluhan` (
@@ -67,7 +64,7 @@ CREATE TABLE `penyuluhan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `penyuluhan`
+-- Dumping data for table `penyuluhan`
 --
 
 INSERT INTO `penyuluhan` (`id`, `nama`, `nama_instansi`, `status`, `tanggal_input`, `tanggal_output`, `materi`) VALUES
@@ -77,7 +74,7 @@ INSERT INTO `penyuluhan` (`id`, `nama`, `nama_instansi`, `status`, `tanggal_inpu
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `sewa`
+-- Table structure for table `sewa`
 --
 
 CREATE TABLE `sewa` (
@@ -95,7 +92,7 @@ CREATE TABLE `sewa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `sewa`
+-- Dumping data for table `sewa`
 --
 
 INSERT INTO `sewa` (`nik`, `nama`, `no_telepon`, `nama_barang`, `id_barang`, `tanggal_sewa`, `tanggal_kembali`, `jumlah_hari`, `harga_sewa`, `asal`, `alamat`) VALUES
@@ -107,7 +104,7 @@ INSERT INTO `sewa` (`nik`, `nama`, `no_telepon`, `nama_barang`, `id_barang`, `ta
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ts_grup`
+-- Table structure for table `ts_grup`
 --
 
 CREATE TABLE `ts_grup` (
@@ -116,7 +113,7 @@ CREATE TABLE `ts_grup` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `ts_grup`
+-- Dumping data for table `ts_grup`
 --
 
 INSERT INTO `ts_grup` (`id_grup`, `grup`) VALUES
@@ -126,7 +123,7 @@ INSERT INTO `ts_grup` (`id_grup`, `grup`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -141,70 +138,72 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `nik`, `nama`, `alamat`, `username`, `password`, `level`, `grup`) VALUES
 (1, '12345678910', 'nurin', 'Jember', 'nurin', 'nurin123', 'admin', 1),
 (2, '112233445566', 'puput', 'Probolinggo', 'puput', 'puput123', 'user', 2),
 (4, '234567891112', 'kanisa', 'JEMBER', 'kanisa', 'kanisa123', 'user', 2),
-(5, '123456789088', 'abdul', 'jember ', 'abdul', 'abdul123', 'user', 2);
+(5, '123456789088', 'abdul', 'jember ', 'abdul', 'abdul123', 'user', 2),
+(6, '199907181999', 'Spongebob', 'Bottom', 'bob', 'bob123', '', 0),
+(7, '123456789123', 'admin', 'Sumbersari', 'admin', 'admin123', 'admin', 1);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `barang`
+-- Indexes for table `barang`
 --
 ALTER TABLE `barang`
   ADD PRIMARY KEY (`id_barang`);
 
 --
--- Indeks untuk tabel `penyuluhan`
+-- Indexes for table `penyuluhan`
 --
 ALTER TABLE `penyuluhan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `sewa`
+-- Indexes for table `sewa`
 --
 ALTER TABLE `sewa`
   ADD PRIMARY KEY (`nik`);
 
 --
--- Indeks untuk tabel `ts_grup`
+-- Indexes for table `ts_grup`
 --
 ALTER TABLE `ts_grup`
   ADD PRIMARY KEY (`id_grup`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `penyuluhan`
+-- AUTO_INCREMENT for table `penyuluhan`
 --
 ALTER TABLE `penyuluhan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
--- AUTO_INCREMENT untuk tabel `ts_grup`
+-- AUTO_INCREMENT for table `ts_grup`
 --
 ALTER TABLE `ts_grup`
   MODIFY `id_grup` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
