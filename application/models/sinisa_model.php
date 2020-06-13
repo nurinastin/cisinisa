@@ -5,6 +5,13 @@ class sinisa_model extends CI_Model{
 
     }
 
+    function getDaftar(){
+		$this->db->select('*');
+		$this->db->from('user');
+		$query = $this->db->get();
+			return $query;
+	}
+
 	function getAll(){
 		$this->db->select('*');
 		$this->db->from('penyuluhan');

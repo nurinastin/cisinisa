@@ -6,31 +6,6 @@ class login_controller extends CI_Controller{
         $this->load->model('sinisa_model');
     }
 
-    public function input_daftar(){
-        $nik = $this->input->post('nik');
-        $nama = $this->input->post('nama');
-        $alamat = $this->input->post('alamat');
-       // $email = $this->input->post('email');
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
-
-        $data = array(
-            'nik' => $nik,
-            'nama' => $nama,
-            'alamat' => $alamat,
-          //  'email' => $email,
-            'username' => $username,
-            'password' => $password
-        );
-
-        $this->sinisa_model->input_data($data, 'user');
-        redirect('login_controller/index');
-    }
-
-    public function daftar(){
-        $this->load->view('daftar_view');
-    }
-
     public function index(){
         $this->load->view('login_view');
     }
@@ -60,6 +35,5 @@ class login_controller extends CI_Controller{
 	function logout() {
 		$this->session->sess_destroy();
 		redirect('login_controller');
-    }
-
+	}
 }
